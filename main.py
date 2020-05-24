@@ -10,7 +10,6 @@ async def on_message(message):
     if message.author == client.user:
         return
     
-    
     id = client.get_guild(325925436804825111)
 
     if message.content.find("!Hello") != -1 :
@@ -33,5 +32,12 @@ async def on_message(message):
 
     if message.content == "Super !":
         await message.add_reaction('\U0001F44D')
+        
+    if message.content == "GG":
+        await message.channel.send('👍')
+
+    if message.content == "Ah !":
+        await message.add_reaction('<:Ah:327155261049536532>')
+
 
 client.run(token)
