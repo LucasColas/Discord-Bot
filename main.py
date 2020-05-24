@@ -7,6 +7,10 @@ client = discord.Client()
 
 @client.event
 async def on_message(message):
+    if message.author == client.user:
+        return
+    
+    
     id = client.get_guild(325925436804825111)
 
     if message.content.find("!Hello") != -1 :
@@ -24,13 +28,10 @@ async def on_message(message):
     if message.content.find("What's up !") != -1 :
         await message.channel.send("Hey!")
 
-    if message.content == "!users":
-        await message.channel.send(id.member_count)
+    if message.content == "!users": #Number of users
+        await message.channel.send(f"users : {id.member_count}.")
 
-    if message.content == "super !":
-        await add_reaction()
+    if message.content == "Super !":
+        await message.add_reaction('\U0001F44D')
 
-permission = discord.permission()
-
-permission.create_instant_invite()
 client.run(token)
