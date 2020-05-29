@@ -11,6 +11,8 @@ async def on_message(message):
         return
     
     id = client.get_guild(325925436804825111)
+    if message.content.find("!Test") != -1 :
+        await message.channel.send("Operational !")
 
     if message.content.find("!Hello") != -1 :
         await message.channel.send("Hi")
