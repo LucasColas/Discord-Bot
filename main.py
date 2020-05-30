@@ -7,25 +7,23 @@ client = discord.Client()
 
 @client.event
 async def on_message(message):
+    id = client.get_guild(325925436804825111)
     if message.author == client.user:
         return
 
-    channels = ["autobots"]
-
-    if message.channel in channels:
-      if message.content.find("!Test") != -1 :
-        await message.channel.send("Operational !")
+    #ch = client.get_channel(427899196985704450)
+    #if message.author.id == 427899196985704450:
+    if message.content.find("!Test") != -1 :
+      await message.channel.send("Operational !")
       
-      if message.content.find("!Hello") != -1 :
-        await message.channel.send("Hi")
+    if message.content.find("!Hello") != -1 :
+      await message.channel.send("Hi")
 
-      if message.content == "!users": #Number of users
-        await message.channel.send(f"users : {id.member_count}.")
+    if message.content == "!users": #Number of users
+      await message.channel.send(f"users : {id.member_count}.")
 
-    id = client.get_guild(325925436804825111)
 
     
-
     if message.content.find("Salut") != -1 :
         await message.channel.send("Salut !")
 
@@ -52,10 +50,5 @@ async def on_message(message):
 
     if message.content == "merde":
         await message.channel.send("Ouai c'est la merde")
-
-async def join(ctx):
-    channel = ctx.author.voice.channel
-    await channel.connect()
-
 
 client.run(token)
